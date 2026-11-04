@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-k%7u4+cgc($@&dhcgl^eqe)_9z3h)k(r&6xtp+^@-vhu*d&xo0
 DEBUG = True
 
 ALLOWED_HOSTS = []
+APPEND_SLASH = False
 
 
 # Application definition
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'resumes'
 ]
 
 MIDDLEWARE = [
@@ -109,6 +111,8 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+MEDIA_ROOT = BASE_DIR / "media"
 
 
 # Static files (CSS, JavaScript, Images)
