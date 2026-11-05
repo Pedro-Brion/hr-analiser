@@ -26,6 +26,8 @@ class Candidate(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
     birth_date = models.DateField(null=True, blank=True)
+    def __str__(self):
+            return f"Candidate {self.name}: Resume Id{self.resume_id}"
 
 
 class Experience(models.Model):
@@ -35,6 +37,8 @@ class Experience(models.Model):
     start = models.DateField(null=True, blank=True)
     end = models.DateField(null=True, blank=True)
     technologies = models.JSONField(default=list)
+    def __str__(self):
+        return f"Experience in {self.company}: Resume Id{self.resume_id}"
     
 class StackItem(models.Model):
     resume = models.ForeignKey(Resume,on_delete=models.CASCADE, related_name="stack")
@@ -43,4 +47,6 @@ class StackItem(models.Model):
     score = models.PositiveSmallIntegerField(
         validators=[MinValueValidator(0), MaxValueValidator(5)]
     )
+    def __str__(self):
+        return f"Stack {self.name}, for {self.experience_years}y => {self.score}/5"
     

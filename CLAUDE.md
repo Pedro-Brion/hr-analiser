@@ -45,7 +45,7 @@ Django, Django REST Framework, Celery + Redis, PostgreSQL, pdfplumber, PydanticA
 
 ## Models (planned)
 - `Resume`: file, status (PENDING / PROCESSING / DONE / FAILED), error message, created_at
-- `Candidate`: name, email, birth_date (nullable), FK to Resume
+- `Candidate`: name, email, birth_date (nullable), OneToOne to Resume
 - `Experience`: company, role, start, end (nullable = current), technologies, FK to Resume (kept so every number is auditable)
 - `StackItem`: name, experience_years, score (validators 0–5), FK to Resume
 
