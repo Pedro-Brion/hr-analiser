@@ -1,3 +1,4 @@
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
 
@@ -25,3 +26,21 @@ class Candidate(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
     birth_date = models.DateField(null=True, blank=True)
+
+
+class Experience(models.Model):
+    resume = models.ForeignKey(Resume,on_delete=models.CASCADE, related_name="experiences")
+    company = models.CharField(max_length=100)
+    role = models.CharField(max_length=150)
+    start = models.DateField(null=True, blank=True)
+    end = models.DateField(null=True, blank=True)
+    technologies = models.JSONField(default=list)
+    
+class StackItem(models.Model):
+    resume = models.ForeignKey(Resume,on_delete=models.CASCADE, related_name="stack")
+    name = models.CharField(max_length=100)
+    experience_years = models.DecimalField(max_digits=4, decimal_places=1)
+    score = models.PositiveSmallIntegerField(
+        validators=[MinValueValidator(0), MaxValueValidator(5)]
+    )
+    
