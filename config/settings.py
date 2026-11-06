@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-k%7u4+cgc($@&dhcgl^eqe)_9z3h)k(r&6xtp+^@-vhu*d&xo0
 DEBUG = True
 
 ALLOWED_HOSTS = []
-APPEND_SLASH = False
+APPEND_SLASH = True
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'resumes'
 ]
 

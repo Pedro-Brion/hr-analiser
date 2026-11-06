@@ -48,5 +48,5 @@ class StackItem(models.Model):
         validators=[MinValueValidator(0), MaxValueValidator(5)]
     )
     def __str__(self):
-        return f"Stack {self.name}, for {self.experience_years}y => {self.score}/5"
+        return f"{self.name} for {self.experience_years}years: {self.score}/5"
     
